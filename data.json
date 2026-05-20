@@ -441,10 +441,10 @@
           "id": "iso",
           "name": "Iso-Drink + Sticker",
           "purpose": "Sportler-Erfrischung",
-          "qty": 300,
+          "qty": 250,
           "prices": [
-            0.5,
-            0.8,
+            0,
+            90,
             1.5
           ],
           "reusable": false,
@@ -452,7 +452,7 @@
         },
         {
           "id": "riegel",
-          "name": "MÃ¼sliriegel + Banderole",
+          "name": "Müsliriegel",
           "purpose": "Snack fÃ¼r Sportler",
           "qty": 300,
           "prices": [
@@ -479,6 +479,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:15:59.137Z",
+  "lastSaved": "2026-05-20T07:16:42.785Z",
   "lastSavedBy": "Rick"
 }
