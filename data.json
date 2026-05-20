@@ -133,7 +133,7 @@
         {
           "id": "rollup",
           "name": "Roll-Up Banner",
-          "purpose": "FlÃ¤che in Zelten",
+          "purpose": "",
           "qty": 4,
           "prices": [
             40,
@@ -146,7 +146,7 @@
         {
           "id": "schirme",
           "name": "Sonnenschirme",
-          "purpose": "SchattenplÃ¤tze",
+          "purpose": "",
           "qty": 4,
           "prices": [
             25,
@@ -479,6 +479,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:15:12.993Z",
+  "lastSaved": "2026-05-20T07:15:59.137Z",
   "lastSavedBy": "Rick"
 }
