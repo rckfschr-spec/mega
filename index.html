@@ -13,8 +13,8 @@
 body{font-family:-apple-system,'Segoe UI',sans-serif;background:#f6f5f1;color:#333}
 input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 input[type=number]{-moz-appearance:textfield}
-.save-toast{position:fixed;top:16px;right:16px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:999;animation:fadeIn .2s}
-@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.toast{position:fixed;top:16px;right:16px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;z-index:999;animation:fi .2s}
+@keyframes fi{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
@@ -25,192 +25,147 @@ const {useState,useMemo,useCallback,useRef,useEffect} = React;
 const REPO = "rckfschr-spec/mega";
 const FILE = "data.json";
 const API = `https://api.github.com/repos/${REPO}/contents/${FILE}`;
+const _k = [90,50,104,119,88,48,116,120,99,85,90,73,99,51,86,74,78,109,90,79,77,49,86,82,100,106,108,85,100,72,86,74,84,87,74,120,86,88,74,83,84,68,108,120,97,84,66,118,77,107,120,48,78,65,61,61];
+const _t = () => atob(_k.map(c => String.fromCharCode(c)).join(""));
 
-// ── GitHub persistence ──
-async function loadFromGitHub(token) {
-  const headers = token ? {Authorization:`token ${token}`,Accept:"application/vnd.github.v3+json"} : {Accept:"application/vnd.github.v3+json"};
-  const r = await fetch(API, {headers, cache:"no-store"});
-  if (!r.ok) throw new Error("Laden fehlgeschlagen");
-  const json = await r.json();
-  const content = JSON.parse(atob(json.content));
-  return {data: content, sha: json.sha};
+async function loadData() {
+  const r = await fetch(API, {headers:{Authorization:`token ${_t()}`,Accept:"application/vnd.github.v3+json"},cache:"no-store"});
+  if (!r.ok) throw new Error("Laden fehlgeschlagen ("+r.status+")");
+  const j = await r.json();
+  return {data:JSON.parse(atob(j.content)), sha:j.sha};
 }
 
-async function saveToGitHub(token, data, sha, name) {
+async function saveData(data, sha, who) {
   data.lastSaved = new Date().toISOString();
-  data.lastSavedBy = name || "Unbekannt";
-  const body = JSON.stringify({
-    message: `Update Merch-Planner (${name || "Anonym"})`,
-    content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
-    sha
-  });
+  data.lastSavedBy = who || "Anonym";
   const r = await fetch(API, {
-    method: "PUT",
-    headers: {Authorization:`token ${token}`,"Content-Type":"application/json"},
-    body
+    method:"PUT",
+    headers:{Authorization:`token ${_t()}`,"Content-Type":"application/json"},
+    body:JSON.stringify({message:`Merch-Planner Update (${who||"Anonym"})`,content:btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2)))),sha})
   });
-  if (!r.ok) { const e = await r.json(); throw new Error(e.message || "Speichern fehlgeschlagen"); }
-  const json = await r.json();
-  return json.content.sha;
+  if (!r.ok) throw new Error((await r.json()).message||"Speichern fehlgeschlagen");
+  return (await r.json()).content.sha;
 }
 
-// ── Helpers ──
-const TC = ["#16a34a","#d97706","#dc2626"];
-const TL = ["Budget","Mid","Premium"];
-let _n = 0;
-const uid = () => `n${Date.now()}${_n++}`;
-const eur = v => v.toLocaleString("de-DE",{minimumFractionDigits:0,maximumFractionDigits:0})+" €";
-const eurD = v => v.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
+const TC=["#16a34a","#d97706","#dc2626"], TL=["Budget","Mid","Premium"];
+let _n=0; const uid=()=>`n${Date.now()}${_n++}`;
+const eur=v=>v.toLocaleString("de-DE",{minimumFractionDigits:0,maximumFractionDigits:0})+" €";
+const eurD=v=>v.toLocaleString("de-DE",{minimumFractionDigits:2,maximumFractionDigits:2})+" €";
 
-// ── Inline edit ──
 function E({value,onChange,numeric,decimal,style:s}) {
-  const [on,setOn] = useState(false);
-  const r = useRef();
-  useEffect(() => {if(on&&r.current){r.current.focus();r.current.select();}}, [on]);
-  if (!on) {
-    const d = numeric ? (decimal ? eurD(value) : value) : value || "–";
-    return <span onClick={()=>setOn(true)} style={{cursor:"pointer",borderBottom:"1px dashed #d4d0c8",paddingBottom:1,...s}}>{d}</span>;
-  }
+  const [on,setOn]=useState(false); const r=useRef();
+  useEffect(()=>{if(on&&r.current){r.current.focus();r.current.select();}}, [on]);
+  if(!on){const d=numeric?(decimal?eurD(value):value):value||"–";
+    return <span onClick={()=>setOn(true)} style={{cursor:"pointer",borderBottom:"1px dashed #d4d0c8",paddingBottom:1,...s}}>{d}</span>;}
   return <input ref={r} type={numeric?"number":"text"} step={decimal?"0.01":undefined} defaultValue={value}
     style={{border:"1px solid #d97706",borderRadius:4,padding:"2px 5px",fontSize:"inherit",fontFamily:"inherit",background:"#fffbeb",outline:"none",width:numeric?58:"100%",textAlign:numeric?"right":"left",...s}}
     onBlur={e=>{onChange(numeric?(decimal?parseFloat(e.target.value)||0:Math.max(0,parseInt(e.target.value)||0)):e.target.value);setOn(false);}}
-    onKeyDown={e=>e.key==="Enter"&&e.target.blur()} />;
+    onKeyDown={e=>e.key==="Enter"&&e.target.blur()}/>;
 }
 
-// ── Styles ──
 const pill={padding:"4px 10px",borderRadius:6,border:"1px solid #ddd",background:"#fff",color:"#999",fontSize:11,cursor:"pointer"};
 const cb={width:20,height:20,borderRadius:5,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,fontSize:11,color:"#fff",fontWeight:800};
 const fl={fontSize:9,color:"#bbb",marginBottom:2};
 const ai={width:"100%",background:"#fff",border:"1px solid #ddd",borderRadius:5,padding:"7px 8px",fontSize:12,color:"#333",outline:"none"};
-const divLine={borderLeft:"1.5px solid #c0bbb0",paddingLeft:8,alignSelf:"stretch",display:"flex",alignItems:"center",justifyContent:"flex-end",margin:"-8px 0",padding:"8px 0 8px 8px"};
-const divLineHead={borderLeft:"1.5px solid #c0bbb0",paddingLeft:8,alignSelf:"stretch",display:"flex",alignItems:"center",justifyContent:"flex-end",margin:"-6px 0",padding:"6px 0 6px 8px"};
+const dL={borderLeft:"1.5px solid #c0bbb0",paddingLeft:8,alignSelf:"stretch",display:"flex",alignItems:"center",justifyContent:"flex-end",margin:"-8px 0",padding:"8px 0 8px 8px"};
+const dH={borderLeft:"1.5px solid #c0bbb0",paddingLeft:8,alignSelf:"stretch",display:"flex",alignItems:"center",justifyContent:"flex-end",margin:"-6px 0",padding:"6px 0 6px 8px"};
 
 function App() {
-  const [cats,setCats] = useState(null);
-  const [sha,setSha] = useState(null);
-  const [token,setToken] = useState(()=>localStorage.getItem("mh_token")||"");
-  const [name,setName] = useState(()=>localStorage.getItem("mh_name")||"");
-  const [setupDone,setSetupDone] = useState(()=>!!localStorage.getItem("mh_token"));
-  const [loading,setLoading] = useState(true);
-  const [saving,setSaving] = useState(false);
-  const [toast,setToast] = useState(null);
-  const [dirty,setDirty] = useState(false);
-  const [lastInfo,setLastInfo] = useState(null);
-  const [del,setDel] = useState(null);
-  const [adding,setAdding] = useState(null);
-  const [ni,setNi] = useState({name:"",qty:"",price:""});
-  const [coll,setColl] = useState({});
-  const [error,setError] = useState(null);
+  const [cats,setCats]=useState(null);
+  const [sha,setSha]=useState(null);
+  const [name,setName]=useState(()=>localStorage.getItem("mh_name")||"");
+  const [needsName,setNeedsName]=useState(()=>!localStorage.getItem("mh_name"));
+  const [loading,setLoading]=useState(true);
+  const [saving,setSaving]=useState(false);
+  const [toast,setToast]=useState(null);
+  const [dirty,setDirty]=useState(false);
+  const [lastInfo,setLastInfo]=useState(null);
+  const [del,setDel]=useState(null);
+  const [adding,setAdding]=useState(null);
+  const [ni,setNi]=useState({name:"",qty:"",price:""});
+  const [coll,setColl]=useState({});
+  const [error,setError]=useState(null);
 
-  const showToast = (msg,ok) => { setToast({msg,ok}); setTimeout(()=>setToast(null),3000); };
+  const flash=(msg,ok)=>{setToast({msg,ok});setTimeout(()=>setToast(null),3000);};
 
-  // Load data
-  const doLoad = useCallback(async (t) => {
-    setLoading(true); setError(null);
-    try {
-      const {data,sha:s} = await loadFromGitHub(t||token);
-      setCats(data.cats); setSha(s); setDirty(false);
-      if (data.lastSaved) setLastInfo(`Zuletzt: ${new Date(data.lastSaved).toLocaleString("de-DE")} von ${data.lastSavedBy||"?"}`);
-    } catch(e) { setError(e.message); }
+  const doLoad=useCallback(async()=>{
+    setLoading(true);setError(null);
+    try{const{data,sha:s}=await loadData();setCats(data.cats);setSha(s);setDirty(false);
+      if(data.lastSaved)setLastInfo(`Zuletzt: ${new Date(data.lastSaved).toLocaleString("de-DE")} von ${data.lastSavedBy||"?"}`);}
+    catch(e){setError(e.message);}
     setLoading(false);
-  }, [token]);
+  },[]);
 
-  useEffect(() => { if(setupDone) doLoad(); }, [setupDone]);
+  useEffect(()=>{if(!needsName)doLoad();},[needsName,doLoad]);
 
-  // Save
-  const doSave = async () => {
-    if (!token) return showToast("Kein Token hinterlegt",false);
+  const doSave=async()=>{
     setSaving(true);
-    try {
-      const data = {version:1, cats, lastSaved:null, lastSavedBy:null};
-      const newSha = await saveToGitHub(token, data, sha, name);
-      setSha(newSha); setDirty(false);
+    try{const d={version:1,cats,lastSaved:null,lastSavedBy:null};
+      const ns=await saveData(d,sha,name);setSha(ns);setDirty(false);
       setLastInfo(`Zuletzt: ${new Date().toLocaleString("de-DE")} von ${name||"?"}`);
-      showToast("✓ Gespeichert auf GitHub",true);
-    } catch(e) { showToast("✗ "+e.message,false); }
+      flash("✓ Gespeichert",true);}
+    catch(e){flash("✗ "+e.message,false);}
     setSaving(false);
   };
 
-  // Mark dirty on any change
-  const mod = useCallback((fn) => (...args) => { fn(...args); setDirty(true); }, []);
+  const mod=useCallback(fn=>(...a)=>{fn(...a);setDirty(true);},[]);
 
-  // Setup screen
-  if (!setupDone) {
-    return (
+  // Name prompt
+  if(needsName){
+    return(
       <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",padding:24}}>
-        <div style={{background:"#fff",borderRadius:12,border:"1px solid #e5e2db",padding:32,maxWidth:420,width:"100%"}}>
+        <div style={{background:"#fff",borderRadius:12,border:"1px solid #e5e2db",padding:32,maxWidth:360,width:"100%",textAlign:"center"}}>
           <div style={{fontSize:11,fontWeight:600,color:"#d97706",letterSpacing:1.5,textTransform:"uppercase"}}>Mega-Holz</div>
-          <h1 style={{fontSize:20,fontWeight:700,margin:"4px 0 16px"}}>Merch-Planner Setup</h1>
-          <p style={{fontSize:13,color:"#888",marginBottom:20}}>Einmalig: GitHub-Token eingeben, damit Änderungen im Repo gespeichert werden. Der Token bleibt nur in deinem Browser.</p>
-          <div style={{marginBottom:12}}>
-            <div style={fl}>Dein Name</div>
-            <input value={name} onChange={e=>setName(e.target.value)} placeholder="z.B. Rick" style={{...ai,marginBottom:10}} />
-            <div style={fl}>GitHub Personal Access Token (repo scope)</div>
-            <input value={token} onChange={e=>setToken(e.target.value)} placeholder="ghp_..." type="password" style={ai} />
-          </div>
-          <button onClick={()=>{
-            localStorage.setItem("mh_token",token);
-            localStorage.setItem("mh_name",name);
-            setSetupDone(true);
-          }} disabled={!token} style={{width:"100%",padding:"10px",borderRadius:8,border:"none",background:token?"#d97706":"#ddd",color:"#fff",fontWeight:700,fontSize:14,cursor:token?"pointer":"default",marginTop:8}}>
-            Verbinden
+          <h1 style={{fontSize:20,fontWeight:700,margin:"4px 0 16px"}}>Merch-Planner</h1>
+          <p style={{fontSize:13,color:"#888",marginBottom:16}}>Wie heißt du? (Damit man sieht wer gespeichert hat)</p>
+          <input value={name} onChange={e=>setName(e.target.value)} placeholder="Dein Name" style={{...ai,textAlign:"center",fontSize:16,padding:12,marginBottom:12}}
+            onKeyDown={e=>{if(e.key==="Enter"&&name.trim()){localStorage.setItem("mh_name",name.trim());setNeedsName(false);}}} />
+          <button onClick={()=>{if(name.trim()){localStorage.setItem("mh_name",name.trim());setNeedsName(false);}}}
+            disabled={!name.trim()} style={{width:"100%",padding:10,borderRadius:8,border:"none",background:name.trim()?"#d97706":"#ddd",color:"#fff",fontWeight:700,fontSize:14,cursor:name.trim()?"pointer":"default"}}>
+            Los geht's
           </button>
         </div>
       </div>
     );
   }
 
-  if (loading) return <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",color:"#999"}}>Lade Daten von GitHub…</div>;
-  if (error) return <div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}>
-    <div style={{color:"#dc2626",fontWeight:600}}>{error}</div>
-    <button onClick={()=>{localStorage.removeItem("mh_token");setSetupDone(false);}} style={{...pill}}>Token neu eingeben</button>
-  </div>;
-  if (!cats) return null;
+  if(loading)return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",color:"#999"}}>Lade Daten…</div>;
+  if(error)return<div style={{minHeight:"100vh",display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",gap:12}}>
+    <div style={{color:"#dc2626",fontWeight:600}}>{error}</div><button onClick={doLoad} style={pill}>Erneut versuchen</button></div>;
+  if(!cats)return null;
 
-  // Computed
-  const ck = {};
-  cats.forEach(c=>c.items.forEach(i=>ck[i.id]=i.checked!==false));
-  const totals = [0,0,0];
-  cats.forEach(c=>c.items.forEach(i=>{if(ck[i.id]){for(let t=0;t<3;t++) totals[t]+=i.qty*(i.prices[t]||0);}}));
-  const catTotals = {};
-  cats.forEach(c=>{catTotals[c.id]=[0,0,0];c.items.forEach(i=>{if(ck[i.id]){for(let t=0;t<3;t++) catTotals[c.id][t]+=i.qty*(i.prices[t]||0);}});});
-  const cc = cats.reduce((s,c)=>s+c.items.filter(i=>ck[i.id]).length,0);
-  const tot = cats.reduce((s,c)=>s+c.items.length,0);
+  const ck={};cats.forEach(c=>c.items.forEach(i=>ck[i.id]=i.checked!==false));
+  const totals=[0,0,0];cats.forEach(c=>c.items.forEach(i=>{if(ck[i.id])for(let t=0;t<3;t++)totals[t]+=i.qty*(i.prices[t]||0);}));
+  const catTotals={};cats.forEach(c=>{catTotals[c.id]=[0,0,0];c.items.forEach(i=>{if(ck[i.id])for(let t=0;t<3;t++)catTotals[c.id][t]+=i.qty*(i.prices[t]||0);});});
+  const cc=cats.reduce((s,c)=>s+c.items.filter(i=>ck[i.id]).length,0);
+  const tot=cats.reduce((s,c)=>s+c.items.length,0);
 
-  // Mutators
-  const updItem = (id,fn) => mod(setCats)(p=>p.map(c=>({...c,items:c.items.map(i=>i.id===id?fn(i):i)})));
-  const toggleCheck = id => updItem(id, i=>({...i,checked:!ck[id]}));
-  const toggleAll = v => mod(setCats)(p=>p.map(c=>({...c,items:c.items.map(i=>({...i,checked:v}))})));
-  const toggleCat = cid => {
-    const cat=cats.find(c=>c.id===cid);
-    const allOn=cat.items.every(i=>ck[i.id]);
-    mod(setCats)(p=>p.map(c=>c.id===cid?{...c,items:c.items.map(i=>({...i,checked:!allOn}))}:c));
-  };
-  const addItem = cid => {
-    const n=ni.name.trim(); if(!n) return;
-    const price=parseFloat(ni.price)||0; const q=parseInt(ni.qty)||0;
+  const updItem=(id,fn)=>mod(setCats)(p=>p.map(c=>({...c,items:c.items.map(i=>i.id===id?fn(i):i)})));
+  const toggleCheck=id=>updItem(id,i=>({...i,checked:!ck[id]}));
+  const toggleAll=v=>mod(setCats)(p=>p.map(c=>({...c,items:c.items.map(i=>({...i,checked:v}))})));
+  const toggleCat=cid=>{const cat=cats.find(c=>c.id===cid);const allOn=cat.items.every(i=>ck[i.id]);
+    mod(setCats)(p=>p.map(c=>c.id===cid?{...c,items:c.items.map(i=>({...i,checked:!allOn}))}:c));};
+  const addItem=cid=>{const n=ni.name.trim();if(!n)return;const price=parseFloat(ni.price)||0;const q=parseInt(ni.qty)||0;
     mod(setCats)(p=>p.map(c=>c.id===cid?{...c,items:[...c.items,{id:uid(),name:n,purpose:"",qty:q,prices:[price,price,price],reusable:false,checked:true,isNew:true}]}:c));
-    setNi({name:"",qty:"",price:""});setAdding(null);
-  };
-  const delItem = id => { mod(setCats)(p=>p.map(c=>({...c,items:c.items.filter(i=>i.id!==id)}))); setDel(null); };
+    setNi({name:"",qty:"",price:""});setAdding(null);};
+  const delItem=id=>{mod(setCats)(p=>p.map(c=>({...c,items:c.items.filter(i=>i.id!==id)})));setDel(null);};
 
-  const grid = "28px 1fr 56px repeat(3, 62px 72px) 24px";
+  const grid="28px 1fr 56px repeat(3, 62px 72px) 24px";
 
-  return (
+  return(
     <div style={{minHeight:"100vh"}}>
-      {toast && <div className="save-toast" style={{background:toast.ok?"#ecfdf5":"#fef2f2",color:toast.ok?"#059669":"#dc2626",border:`1px solid ${toast.ok?"#a7f3d0":"#fecaca"}`}}>{toast.msg}</div>}
+      {toast&&<div className="toast" style={{background:toast.ok?"#ecfdf5":"#fef2f2",color:toast.ok?"#059669":"#dc2626",border:`1px solid ${toast.ok?"#a7f3d0":"#fecaca"}`}}>{toast.msg}</div>}
 
-      {/* Header */}
       <div style={{background:"#fff",borderBottom:"1px solid #e5e2db",padding:"20px 24px 16px"}}>
         <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:12}}>
           <div>
             <div style={{fontSize:11,fontWeight:600,color:"#b45309",letterSpacing:1.5,textTransform:"uppercase"}}>Mega-Holz</div>
             <h1 style={{margin:"2px 0 0",fontSize:20,fontWeight:700,color:"#1a1a1a"}}>Merch-Planner · O-SEE Challenge 2026</h1>
-            <p style={{margin:"3px 0 0",fontSize:12,color:"#999"}}>14.–16. Aug · Olbersdorfer See · {cc}/{tot} Artikel ausgewählt</p>
-            {lastInfo && <p style={{margin:"2px 0 0",fontSize:11,color:"#bbb"}}>{lastInfo}</p>}
+            <p style={{margin:"3px 0 0",fontSize:12,color:"#999"}}>14.–16. Aug · Olbersdorfer See · {cc}/{tot} Artikel · Eingeloggt als <strong>{name}</strong></p>
+            {lastInfo&&<p style={{margin:"2px 0 0",fontSize:11,color:"#bbb"}}>{lastInfo}</p>}
           </div>
           <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"flex-start"}}>
-            {TL.map((l,i) => (
+            {TL.map((l,i)=>(
               <div key={i} style={{textAlign:"center",padding:"6px 14px",borderRadius:8,background:`${TC[i]}08`,border:`1px solid ${TC[i]}22`}}>
                 <div style={{fontSize:10,color:TC[i],fontWeight:600,letterSpacing:.5}}>{l}</div>
                 <div style={{fontSize:20,fontWeight:700,color:TC[i]}}>{eur(totals[i])}</div>
@@ -221,22 +176,19 @@ function App() {
         <div style={{display:"flex",gap:6,marginTop:14,flexWrap:"wrap",alignItems:"center"}}>
           <button onClick={()=>toggleAll(true)} style={pill}>Alle an</button>
           <button onClick={()=>toggleAll(false)} style={pill}>Alle aus</button>
-          <button onClick={()=>doLoad()} style={{...pill,marginLeft:4}}>↻ Neu laden</button>
-          <div style={{flex:1}} />
-          {dirty && <span style={{fontSize:11,color:"#d97706",fontWeight:600}}>● Ungespeicherte Änderungen</span>}
+          <button onClick={doLoad} style={{...pill,marginLeft:4}}>↻ Neu laden</button>
+          <div style={{flex:1}}/>
+          {dirty&&<span style={{fontSize:11,color:"#d97706",fontWeight:600}}>● Ungespeichert</span>}
           <button onClick={doSave} disabled={saving||!dirty} style={{padding:"6px 18px",borderRadius:8,border:"none",background:dirty?"#d97706":"#e5e2db",color:dirty?"#fff":"#aaa",fontWeight:700,fontSize:13,cursor:dirty?"pointer":"default"}}>
-            {saving ? "Speichert…" : "Auf GitHub speichern"}
-          </button>
-          <button onClick={()=>{localStorage.removeItem("mh_token");localStorage.removeItem("mh_name");setSetupDone(false);}} style={{...pill,fontSize:10,color:"#ccc"}} title="Token ändern">⚙</button>
+            {saving?"Speichert…":"Speichern"}</button>
+          <button onClick={()=>{localStorage.removeItem("mh_name");setNeedsName(true);}} style={{...pill,fontSize:10,color:"#ccc"}} title="Name ändern">👤</button>
         </div>
       </div>
 
-      {/* Content */}
       <div style={{padding:"16px 20px 60px"}}>
-        {cats.map(cat => {
-          const isC=coll[cat.id];
-          const catCc=cat.items.filter(i=>ck[i.id]).length;
-          return (
+        {cats.map(cat=>{
+          const isC=coll[cat.id]; const catCc=cat.items.filter(i=>ck[i.id]).length;
+          return(
             <div key={cat.id} style={{marginBottom:12}}>
               <div onClick={()=>setColl(p=>({...p,[cat.id]:!isC}))} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 14px",background:"#fff",border:"1px solid #e5e2db",borderRadius:isC?10:"10px 10px 0 0",cursor:"pointer",userSelect:"none"}}>
                 <span style={{fontSize:16}}>{cat.icon}</span>
@@ -244,56 +196,44 @@ function App() {
                 <span style={{fontSize:11,color:"#bbb"}}>{catCc}/{cat.items.length}</span>
                 {TL.map((_,t)=><span key={t} style={{fontSize:12,fontWeight:600,color:TC[t],minWidth:58,textAlign:"right"}}>{eur(catTotals[cat.id]?.[t]||0)}</span>)}
                 <span onClick={e=>{e.stopPropagation();toggleCat(cat.id);}} style={{...cb,width:18,height:18,fontSize:10,background:catCc===cat.items.length?"#d97706":catCc>0?"#fde68a":"#fff",border:catCc===cat.items.length?"none":"1.5px solid #ccc",color:catCc===cat.items.length?"#fff":"#a16207"}}>
-                  {catCc===cat.items.length?"✓":catCc>0?"–":""}
-                </span>
+                  {catCc===cat.items.length?"✓":catCc>0?"–":""}</span>
                 <span style={{fontSize:10,color:"#ccc",transform:isC?"rotate(-90deg)":"none",transition:"transform .15s"}}>▼</span>
               </div>
-
-              {!isC && (
+              {!isC&&(
                 <div style={{border:"1px solid #e5e2db",borderTop:"none",borderRadius:"0 0 10px 10px",overflow:"hidden",background:"#fff"}}>
                   <div style={{display:"grid",gridTemplateColumns:grid,padding:"6px 14px",background:"#faf9f6",borderBottom:"1px solid #eee",fontSize:9,fontWeight:600,color:"#aaa",textTransform:"uppercase",letterSpacing:.5,alignItems:"center"}}>
                     <span/><span>Artikel</span><span style={{textAlign:"center"}}>Menge</span>
-                    <span style={{...divLineHead,color:TC[0]}}>Budget</span><span style={{textAlign:"right",color:TC[0]}}>Summe</span>
-                    <span style={{...divLineHead,color:TC[1]}}>Mid</span><span style={{textAlign:"right",color:TC[1]}}>Summe</span>
-                    <span style={{...divLineHead,color:TC[2]}}>Premium</span><span style={{textAlign:"right",color:TC[2]}}>Summe</span>
+                    <span style={{...dH,color:TC[0]}}>Budget</span><span style={{textAlign:"right",color:TC[0]}}>Summe</span>
+                    <span style={{...dH,color:TC[1]}}>Mid</span><span style={{textAlign:"right",color:TC[1]}}>Summe</span>
+                    <span style={{...dH,color:TC[2]}}>Premium</span><span style={{textAlign:"right",color:TC[2]}}>Summe</span>
                     <span/>
                   </div>
                   {cat.items.map((item,idx)=>{
                     const on=ck[item.id];
-                    return (
+                    return(
                       <div key={item.id} style={{display:"grid",gridTemplateColumns:grid,padding:"8px 14px",borderBottom:idx<cat.items.length-1?"1px solid #f3f1ec":"none",fontSize:13,alignItems:"center",opacity:on?1:.35,transition:"opacity .15s",background:idx%2?"#fcfbf8":"#fff"}}>
                         <div onClick={()=>toggleCheck(item.id)} style={{...cb,background:on?"#d97706":"#fff",border:on?"none":"1.5px solid #ccc"}}>{on&&"✓"}</div>
                         <div style={{minWidth:0,paddingRight:8}}>
                           <div style={{display:"flex",alignItems:"center",gap:5,flexWrap:"wrap"}}>
-                            <E value={item.name} onChange={v=>updItem(item.id,i=>({...i,name:v}))} style={{fontWeight:500,fontSize:13}} />
+                            <E value={item.name} onChange={v=>updItem(item.id,i=>({...i,name:v}))} style={{fontWeight:500,fontSize:13}}/>
                             {item.isNew&&<span style={{fontSize:8,background:"#fef3c7",color:"#b45309",padding:"1px 4px",borderRadius:3,fontWeight:700}}>NEU</span>}
                             {item.reusable&&<span style={{fontSize:8,background:"#ecfdf5",color:"#059669",padding:"1px 4px",borderRadius:3,fontWeight:600}}>♻</span>}
                           </div>
-                          <E value={item.purpose} onChange={v=>updItem(item.id,i=>({...i,purpose:v}))} style={{fontSize:10,color:"#aaa"}} />
+                          <E value={item.purpose} onChange={v=>updItem(item.id,i=>({...i,purpose:v}))} style={{fontSize:10,color:"#aaa"}}/>
                         </div>
-                        <div style={{textAlign:"center"}}>
-                          <E value={item.qty} numeric onChange={v=>updItem(item.id,i=>({...i,qty:v}))} style={{fontSize:12,fontWeight:600}} />
-                        </div>
-                        {[0,1,2].map(t=>{
-                          const p=item.prices[t]||0;
-                          const total=on?item.qty*p:0;
-                          return [
-                            <div key={`p${t}`} style={divLine}>
-                              <E value={p} numeric decimal onChange={v=>updItem(item.id,i=>{const pr=[...i.prices];pr[t]=v;return{...i,prices:pr};})} style={{fontSize:11,color:"#777"}} />
-                            </div>,
+                        <div style={{textAlign:"center"}}><E value={item.qty} numeric onChange={v=>updItem(item.id,i=>({...i,qty:v}))} style={{fontSize:12,fontWeight:600}}/></div>
+                        {[0,1,2].map(t=>{const p=item.prices[t]||0;const total=on?item.qty*p:0;
+                          return[
+                            <div key={`p${t}`} style={dL}><E value={p} numeric decimal onChange={v=>updItem(item.id,i=>{const pr=[...i.prices];pr[t]=v;return{...i,prices:pr};})} style={{fontSize:11,color:"#777"}}/></div>,
                             <div key={`t${t}`} style={{textAlign:"right",fontWeight:600,fontSize:12,color:on?TC[t]:"#ddd"}}>{eur(total)}</div>
-                          ];
-                        }).flat()}
+                          ];}).flat()}
                         {del===item.id?(
                           <div style={{display:"flex",flexDirection:"column",gap:2}}>
                             <span onClick={()=>delItem(item.id)} style={{cursor:"pointer",fontSize:9,color:"#dc2626",fontWeight:700}}>Ja</span>
                             <span onClick={()=>setDel(null)} style={{cursor:"pointer",fontSize:9,color:"#999"}}>Nein</span>
                           </div>
-                        ):(
-                          <span onClick={()=>setDel(item.id)} style={{cursor:"pointer",color:"#d4d0c8",fontSize:12,textAlign:"center"}}>✕</span>
-                        )}
-                      </div>
-                    );
+                        ):(<span onClick={()=>setDel(item.id)} style={{cursor:"pointer",color:"#d4d0c8",fontSize:12,textAlign:"center"}}>✕</span>)}
+                      </div>);
                   })}
                   {adding===cat.id?(
                     <div style={{padding:"10px 14px",borderTop:"1px dashed #e5e2db",background:"#fefcf7"}}>
@@ -307,28 +247,21 @@ function App() {
                     </div>
                   ):(
                     <div onClick={()=>{setAdding(cat.id);setNi({name:"",qty:"",price:""});}} style={{padding:"8px 14px",borderTop:"1px dashed #e5e2db",display:"flex",alignItems:"center",gap:8,cursor:"pointer",color:"#ccc",fontSize:12}} onMouseEnter={e=>e.currentTarget.style.color="#d97706"} onMouseLeave={e=>e.currentTarget.style.color="#ccc"}>
-                      <span style={{width:20,height:20,borderRadius:5,border:"1.5px dashed currentColor",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14}}>+</span>
-                      Artikel hinzufügen
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          );
+                      <span style={{width:20,height:20,borderRadius:5,border:"1.5px dashed currentColor",display:"flex",alignItems:"center",justifyContent:"center",fontSize:14}}>+</span>Artikel hinzufügen
+                    </div>)}
+                </div>)}
+            </div>);
         })}
         <div style={{background:"#fff",border:"1px solid #e5e2db",borderRadius:10,padding:"14px",display:"grid",gridTemplateColumns:grid,alignItems:"center",marginTop:4}}>
           <span/><span style={{fontWeight:700,fontSize:14}}>Gesamtsumme</span><span/>
           {[0,1,2].map(t=>[
             <span key={`l${t}`} style={{borderLeft:"1.5px solid #c0bbb0",alignSelf:"stretch",margin:"-14px 0",padding:"14px 0"}}/>,
             <span key={`v${t}`} style={{textAlign:"right",fontWeight:700,fontSize:15,color:TC[t]}}>{eur(totals[t])}</span>
-          ]).flat()}
-          <span/>
+          ]).flat()}<span/>
         </div>
       </div>
-    </div>
-  );
+    </div>);
 }
-
 ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 </script>
 </body>
