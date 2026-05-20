@@ -4,7 +4,7 @@
     {
       "id": "team",
       "label": "Team Outfit",
-      "icon": "ð",
+      "icon": "Ã°ÂÂÂ",
       "items": [
         {
           "id": "tshirt",
@@ -47,7 +47,7 @@
         },
         {
           "id": "leibchen",
-          "name": "Überzieh-Leibchen",
+          "name": "Überzie",
           "purpose": "",
           "qty": 25,
           "prices": [
@@ -76,7 +76,7 @@
     {
       "id": "stand",
       "label": "Stand-Ausstattung",
-      "icon": "âº",
+      "icon": "Ã¢ÂÂº",
       "items": [
         {
           "id": "hussen",
@@ -93,7 +93,7 @@
         },
         {
           "id": "liegestuhl",
-          "name": "Liegestühle (bedruckt)",
+          "name": "LiegestÃ¼hle (bedruckt)",
           "purpose": "Chill-Zone am Strand",
           "qty": 25,
           "prices": [
@@ -161,7 +161,7 @@
     {
       "id": "premium",
       "label": "Premium Merch",
-      "icon": "ð",
+      "icon": "Ã°ÂÂÂ",
       "items": [
         {
           "id": "bowl",
@@ -205,7 +205,7 @@
         {
           "id": "mauspad",
           "name": "Mauspads",
-          "purpose": "BÃ¼ro / B2B-Geschenk",
+          "purpose": "BÃÂ¼ro / B2B-Geschenk",
           "qty": 30,
           "prices": [
             3,
@@ -217,7 +217,7 @@
         },
         {
           "id": "handtuch",
-          "name": "HandtÃ¼cher (Mikrofaser)",
+          "name": "HandtÃÂ¼cher (Mikrofaser)",
           "purpose": "Schwimmer + Strand",
           "qty": 50,
           "prices": [
@@ -233,7 +233,7 @@
     {
       "id": "giveaway",
       "label": "Giveaways",
-      "icon": "ð",
+      "icon": "Ã°ÂÂÂ",
       "items": [
         {
           "id": "becher",
@@ -251,7 +251,7 @@
         {
           "id": "ballon",
           "name": "Luftballons",
-          "purpose": "Kinder, HÃ¼pfburg",
+          "purpose": "Kinder, HÃÂ¼pfburg",
           "qty": 500,
           "prices": [
             0.15,
@@ -263,7 +263,7 @@
         },
         {
           "id": "ball",
-          "name": "BÃ¤lle (Wasser-/Stressball)",
+          "name": "BÃÂ¤lle (Wasser-/Stressball)",
           "purpose": "Strand + Kinder",
           "qty": 200,
           "prices": [
@@ -302,7 +302,7 @@
         },
         {
           "id": "samen",
-          "name": "Samen-TÃ¼tchen",
+          "name": "Samen-TÃÂ¼tchen",
           "purpose": "Nachhaltig, on-brand",
           "qty": 500,
           "prices": [
@@ -316,7 +316,7 @@
         {
           "id": "sticker",
           "name": "Sticker-Sets",
-          "purpose": "Branding Ã¼berall",
+          "purpose": "Branding ÃÂ¼berall",
           "qty": 500,
           "prices": [
             0.2,
@@ -328,7 +328,7 @@
         },
         {
           "id": "schluessel",
-          "name": "SchlÃ¼sselanhÃ¤nger (Holz)",
+          "name": "SchlÃÂ¼sselanhÃÂ¤nger (Holz)",
           "purpose": "Haptisch, on-brand",
           "qty": 200,
           "prices": [
@@ -341,8 +341,8 @@
         },
         {
           "id": "tattoo",
-          "name": "Tattoo-Sticker (temporÃ¤r)",
-          "purpose": "Kinder HÃ¼pfburg",
+          "name": "Tattoo-Sticker (temporÃÂ¤r)",
+          "purpose": "Kinder HÃÂ¼pfburg",
           "qty": 500,
           "prices": [
             0.1,
@@ -354,7 +354,7 @@
         },
         {
           "id": "faecher",
-          "name": "FÃ¤cher (bedruckt)",
+          "name": "FÃÂ¤cher (bedruckt)",
           "purpose": "August-Hitze",
           "qty": 300,
           "prices": [
@@ -394,7 +394,7 @@
         {
           "id": "sonnencreme",
           "name": "Sonnencreme-Sachets",
-          "purpose": "NÃ¼tzlich, August",
+          "purpose": "NÃÂ¼tzlich, August",
           "qty": 500,
           "prices": [
             0.3,
@@ -407,7 +407,7 @@
         {
           "id": "malbuch",
           "name": "Kinder-Malbuch",
-          "purpose": "HÃ¼pfburg-Bereich",
+          "purpose": "HÃÂ¼pfburg-Bereich",
           "qty": 100,
           "prices": [
             0.8,
@@ -435,7 +435,7 @@
     {
       "id": "food",
       "label": "Verpflegung",
-      "icon": "ð¥¤",
+      "icon": "Ã°ÂÂ¥Â¤",
       "items": [
         {
           "id": "iso",
@@ -452,8 +452,8 @@
         },
         {
           "id": "riegel",
-          "name": "Müsliriegel",
-          "purpose": "Snack fÃ¼r Sportler",
+          "name": "MÃ¼sliriegel",
+          "purpose": "Snack fÃÂ¼r Sportler",
           "qty": 300,
           "prices": [
             0.3,
@@ -479,6 +479,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:16:42.785Z",
+  "lastSaved": "2026-05-20T07:21:40.168Z",
   "lastSavedBy": "Rick"
 }
