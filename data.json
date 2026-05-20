@@ -37,7 +37,7 @@
           "id": "trikot",
           "name": "Sportliche Trikots",
           "purpose": "",
-          "qty": 10,
+          "qty": 15,
           "prices": [
             15,
             22,
@@ -71,6 +71,21 @@
           ],
           "reusable": true,
           "checked": false
+        },
+        {
+          "id": "n17792645890843",
+          "name": "Bändchen",
+          "purpose": "",
+          "qty": 100,
+          "prices": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
         }
       ]
     },
@@ -527,6 +542,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T08:06:07.756Z",
+  "lastSaved": "2026-05-20T08:09:50.412Z",
   "lastSavedBy": "Rick"
 }
