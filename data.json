@@ -167,11 +167,11 @@
         {
           "id": "bowl",
           "name": "Bowls / Lunchbox",
-          "purpose": "Goodie Bag / Verlosung",
-          "qty": 30,
+          "purpose": "",
+          "qty": 25,
           "prices": [
-            5,
-            12,
+            8,
+            14,
             22
           ],
           "reusable": true,
@@ -180,7 +180,7 @@
         {
           "id": "flasche",
           "name": "Trinkflasche (Edelstahl)",
-          "purpose": "Goodie Bag / Team",
+          "purpose": "",
           "qty": 50,
           "prices": [
             5,
@@ -193,7 +193,7 @@
         {
           "id": "kaffee",
           "name": "Kaffee-To-Go Becher",
-          "purpose": "Goodie Bag / Verlosung",
+          "purpose": "",
           "qty": 50,
           "prices": [
             4,
@@ -206,7 +206,7 @@
         {
           "id": "mauspad",
           "name": "Mauspads",
-          "purpose": "Büro / B2B-Geschenk",
+          "purpose": "",
           "qty": 30,
           "prices": [
             3,
@@ -214,20 +214,35 @@
             12
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "handtuch",
           "name": "Handtücher (Mikrofaser)",
-          "purpose": "Schwimmer + Strand",
-          "qty": 50,
+          "purpose": "",
+          "qty": 10,
           "prices": [
-            4,
             8,
-            15
+            12,
+            17
           ],
           "reusable": true,
           "checked": true
+        },
+        {
+          "id": "n17792633559700",
+          "name": "Trinkflasche (Hartplastik)",
+          "purpose": "",
+          "qty": 0,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
         }
       ]
     },
@@ -480,6 +495,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:46:45.736Z",
+  "lastSaved": "2026-05-20T07:49:22.522Z",
   "lastSavedBy": "Rick"
 }
