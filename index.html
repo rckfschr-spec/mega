@@ -29,7 +29,7 @@ async function loadData(token) {
   const r=await fetch(API,{headers:{Authorization:`token ${token}`,Accept:"application/vnd.github.v3+json"},cache:"no-store"});
   if(!r.ok) throw new Error("Laden fehlgeschlagen ("+r.status+")");
   const j=await r.json();
-  return {data:JSON.parse(atob(j.content)),sha:j.sha};
+  return {data:JSON.parse(decodeURIComponent(escape(atob(j.content)))),sha:j.sha};
 }
 async function saveData(token,data,sha,who) {
   data.lastSaved=new Date().toISOString(); data.lastSavedBy=who||"Anonym";
