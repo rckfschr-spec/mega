@@ -78,9 +78,24 @@
           "purpose": "",
           "qty": 100,
           "prices": [
-            0.5,
-            0.5,
-            0.5
+            0.4,
+            0.4,
+            0.4
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17792650967885",
+          "name": "Fleecejacken",
+          "purpose": "",
+          "qty": 40,
+          "prices": [
+            22,
+            35,
+            50
           ],
           "reusable": false,
           "checked": true,
@@ -542,6 +557,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T08:09:50.412Z",
+  "lastSaved": "2026-05-20T08:23:28.089Z",
   "lastSavedBy": "Rick"
 }
