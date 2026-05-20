@@ -210,7 +210,7 @@ function App(){
               <span style={{fontSize:16}}>{cat.icon}</span><span style={{fontWeight:600,fontSize:14,flex:1}}>{cat.label}</span>
               <span style={{fontSize:11,color:"#bbb"}}>{catCc}/{cat.items.length}</span>
               {TL.map((_,t)=><span key={t} style={{fontSize:12,fontWeight:600,color:TC[t],minWidth:58,textAlign:"right"}}>{eur(catTotals[cat.id]?.[t]||0)}</span>)}
-              <span style={{fontSize:12,fontWeight:700,color:"#1a1a1a",minWidth:58,textAlign:"right",background:"#fef3c7",padding:"2px 6px",borderRadius:4}}>{eur(catFinal[cat.id]||0)}</span>
+              <span style={{fontSize:12,fontWeight:700,color:"#1a1a1a",minWidth:58,textAlign:"right"}}>{eur(catFinal[cat.id]||0)}</span>
               <span onClick={e=>{e.stopPropagation();toggleCat(cat.id);}} style={{...cb,width:18,height:18,fontSize:10,background:catCc===cat.items.length?"#d97706":catCc>0?"#fde68a":"#fff",border:catCc===cat.items.length?"none":"1.5px solid #ccc",color:catCc===cat.items.length?"#fff":"#a16207"}}>
                 {catCc===cat.items.length?"✓":catCc>0?"–":""}</span>
               <span style={{fontSize:10,color:"#ccc",transform:isC?"rotate(-90deg)":"none",transition:"transform .15s"}}>▼</span>
@@ -237,9 +237,9 @@ function App(){
                   <div style={{textAlign:"center"}}><E value={item.qty} numeric onChange={v=>updItem(item.id,i=>({...i,qty:v}))} style={{fontSize:12,fontWeight:600}}/></div>
                   {[0,1,2].map(t=>{const p=item.prices[t]||0;const total=on?item.qty*p:0;const picked=(item.pick!=null?item.pick:1)===t;
                     return[<div key={`p${t}`} style={dL}><E value={p} numeric decimal onChange={v=>updItem(item.id,i=>{const pr=[...i.prices];pr[t]=v;return{...i,prices:pr};})} style={{fontSize:11,color:"#777"}}/></div>,
-                      <div key={`t${t}`} onClick={()=>setPick(item.id,t)} style={{textAlign:"right",fontWeight:600,fontSize:12,color:on?(picked?"#fff":TC[t]):"#ddd",cursor:"pointer",background:picked&&on?TC[t]:"transparent",borderRadius:4,padding:"2px 4px",margin:"-2px -4px",transition:"all .15s"}} title={`${TL[t]} wählen`}>{eur(total)}</div>];}).flat()}
+                      <div key={`t${t}`} onClick={()=>setPick(item.id,t)} style={{textAlign:"right",fontWeight:600,fontSize:12,color:on?(picked?"#fff":TC[t]):"#ddd",cursor:"pointer",background:picked&&on?TC[t]:"transparent",borderRadius:10,padding:"1px 6px",transition:"all .15s"}} title={`${TL[t]} wählen`}>{eur(total)}</div>];}).flat()}
                   {(()=>{const pk=item.pick!=null?item.pick:1;const fv=on?item.qty*(item.prices[pk]||0):0;
-                    return <div style={{textAlign:"right",fontWeight:700,fontSize:13,color:on?"#1a1a1a":"#ddd",background:on?"#fef3c7":"transparent",borderRadius:4,padding:"2px 4px",margin:"-2px -4px"}}>{eur(fv)}</div>;})()}
+                    return <div style={{textAlign:"right",fontWeight:700,fontSize:13,color:on?"#1a1a1a":"#ddd"}}>{eur(fv)}</div>;})()}
                   {del===item.id?(<div style={{display:"flex",flexDirection:"column",gap:2}}>
                     <span onClick={()=>delItem(item.id)} style={{cursor:"pointer",fontSize:9,color:"#dc2626",fontWeight:700}}>Ja</span>
                     <span onClick={()=>setDel(null)} style={{cursor:"pointer",fontSize:9,color:"#999"}}>Nein</span></div>
@@ -260,7 +260,7 @@ function App(){
           <span/><span style={{fontWeight:700,fontSize:14}}>Gesamtsumme</span><span/>
           {[0,1,2].map(t=>[<span key={`l${t}`} style={{borderLeft:"1.5px solid #c0bbb0",alignSelf:"stretch",margin:"-14px 0",padding:"14px 0"}}/>,
             <span key={`v${t}`} style={{textAlign:"right",fontWeight:700,fontSize:15,color:TC[t]}}>{eur(totals[t])}</span>]).flat()}
-          <span style={{textAlign:"right",fontWeight:800,fontSize:16,color:"#1a1a1a",background:"#fef3c7",borderRadius:4,padding:"2px 6px"}}>{eur(finalTotal)}</span><span/>
+          <span style={{textAlign:"right",fontWeight:800,fontSize:15,color:"#1a1a1a"}}>{eur(finalTotal)}</span><span/>
         </div>
       </div>
     </div>);
