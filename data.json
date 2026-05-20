@@ -96,11 +96,11 @@
           "id": "liegestuhl",
           "name": "Liegestühle (bedruckt)",
           "purpose": "Chill-Zone am Strand",
-          "qty": 10,
+          "qty": 25,
           "prices": [
-            20,
-            40,
-            70
+            35,
+            45,
+            65
           ],
           "reusable": true,
           "checked": true
@@ -109,24 +109,24 @@
           "id": "fahnen",
           "name": "Beachflags / Fahnen",
           "purpose": "Fernwirkung",
-          "qty": 4,
+          "qty": 8,
           "prices": [
-            30,
-            60,
-            120
+            31,
+            50,
+            90
           ],
           "reusable": true,
           "checked": true
         },
         {
           "id": "decken",
-          "name": "Picknick-Decken",
-          "purpose": "Strand, Kinder-Ecke",
-          "qty": 15,
+          "name": "Beach-Decken",
+          "purpose": "Über die Liegestühle",
+          "qty": 25,
           "prices": [
-            8,
             15,
-            25
+            24,
+            30
           ],
           "reusable": true,
           "checked": true
@@ -134,11 +134,11 @@
         {
           "id": "rollup",
           "name": "Roll-Up Banner",
-          "purpose": "Fläche in Zelten",
+          "purpose": "",
           "qty": 4,
           "prices": [
-            40,
-            80,
+            35,
+            75,
             130
           ],
           "reusable": true,
@@ -147,15 +147,15 @@
         {
           "id": "schirme",
           "name": "Sonnenschirme",
-          "purpose": "Schattenplätze",
+          "purpose": "",
           "qty": 4,
           "prices": [
-            25,
-            50,
-            100
+            170,
+            320,
+            600
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         }
       ]
     },
@@ -480,6 +480,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:39:21.023Z",
+  "lastSaved": "2026-05-20T07:46:45.736Z",
   "lastSavedBy": "Rick"
 }
