@@ -1,5 +1,7 @@
 {
   "version": 1,
+  "lastSaved": null,
+  "lastSavedBy": null,
   "cats": [
     {
       "id": "team",
@@ -10,10 +12,10 @@
           "id": "tshirt",
           "name": "T-Shirts (Team)",
           "purpose": "Einheitliches Auftreten",
-          "qty": 40,
+          "qty": 20,
           "prices": [
-            9,
-            19,
+            8,
+            15,
             25
           ],
           "reusable": true,
@@ -23,7 +25,7 @@
           "id": "hoodie",
           "name": "Hoodies (Team)",
           "purpose": "Abends / kühles Wetter",
-          "qty": 40,
+          "qty": 15,
           "prices": [
             18,
             30,
@@ -36,11 +38,11 @@
           "id": "trikot",
           "name": "Sportliche Trikots",
           "purpose": "Challenge-Starter",
-          "qty": 15,
+          "qty": 8,
           "prices": [
             15,
-            21,
-            40
+            30,
+            50
           ],
           "reusable": true,
           "checked": true
@@ -69,7 +71,7 @@
             15
           ],
           "reusable": true,
-          "checked": false
+          "checked": true
         }
       ]
     },
@@ -80,7 +82,7 @@
       "items": [
         {
           "id": "hussen",
-          "name": "Hussen (Bierbank)",
+          "name": "Hussen (Stehtische)",
           "purpose": "Professionelle Optik",
           "qty": 6,
           "prices": [
@@ -478,7 +480,5 @@
         }
       ]
     }
-  ],
-  "lastSaved": "2026-05-20T07:28:32.985Z",
-  "lastSavedBy": "Rick"
+  ]
 }
