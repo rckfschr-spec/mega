@@ -348,12 +348,12 @@
           "purpose": "Haptisch, on-brand",
           "qty": 200,
           "prices": [
-            0.8,
-            1.5,
-            3
+            0,
+            0,
+            0
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "tattoo",
@@ -361,9 +361,9 @@
           "purpose": "Kinder Hüpfburg",
           "qty": 500,
           "prices": [
-            0.1,
-            0.2,
-            0.4
+            0.4,
+            0.9,
+            1.2
           ],
           "reusable": false,
           "checked": true
@@ -374,7 +374,7 @@
           "purpose": "August-Hitze",
           "qty": 300,
           "prices": [
-            0.5,
+            0.7,
             1,
             2
           ],
@@ -385,14 +385,15 @@
           "id": "beutel",
           "name": "Jutebeutel",
           "purpose": "Tragetasche",
-          "qty": 200,
+          "qty": 50,
           "prices": [
-            1.5,
-            3,
-            5
+            4.5,
+            9,
+            13
           ],
           "reusable": true,
-          "checked": true
+          "checked": true,
+          "pick": 2
         },
         {
           "id": "flyer",
@@ -400,9 +401,9 @@
           "purpose": "Lead-Generierung",
           "qty": 500,
           "prices": [
-            0.08,
-            0.15,
-            0.3
+            0.2,
+            0.35,
+            0.6
           ],
           "reusable": false,
           "checked": true
@@ -413,12 +414,12 @@
           "purpose": "Nützlich, August",
           "qty": 500,
           "prices": [
-            0.3,
-            0.5,
-            0.8
+            0,
+            0,
+            0
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "malbuch",
@@ -426,12 +427,12 @@
           "purpose": "Hüpfburg-Bereich",
           "qty": 100,
           "prices": [
-            0.8,
-            1.5,
-            3
+            0,
+            0,
+            0
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "pfeife",
@@ -439,12 +440,12 @@
           "purpose": "Anfeuern",
           "qty": 200,
           "prices": [
-            0.3,
-            0.6,
-            1.2
+            0,
+            0,
+            0
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         }
       ]
     },
@@ -495,6 +496,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:52:13.002Z",
+  "lastSaved": "2026-05-20T07:54:19.747Z",
   "lastSavedBy": "Rick"
 }
