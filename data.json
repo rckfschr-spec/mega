@@ -1,16 +1,18 @@
 {
   "version": 1,
+  "lastSaved": null,
+  "lastSavedBy": null,
   "cats": [
     {
       "id": "team",
       "label": "Team Outfit",
-      "icon": "Ã°ÂÂÂ",
+      "icon": "👕",
       "items": [
         {
           "id": "tshirt",
           "name": "T-Shirts (Team)",
-          "purpose": "",
-          "qty": 40,
+          "purpose": "Einheitliches Auftreten",
+          "qty": 20,
           "prices": [
             8,
             15,
@@ -22,8 +24,8 @@
         {
           "id": "hoodie",
           "name": "Hoodies (Team)",
-          "purpose": "",
-          "qty": 40,
+          "purpose": "Abends / kühles Wetter",
+          "qty": 15,
           "prices": [
             18,
             30,
@@ -35,8 +37,8 @@
         {
           "id": "trikot",
           "name": "Sportliche Trikots",
-          "purpose": "",
-          "qty": 15,
+          "purpose": "Challenge-Starter",
+          "qty": 8,
           "prices": [
             15,
             30,
@@ -47,9 +49,9 @@
         },
         {
           "id": "leibchen",
-          "name": "Überzie",
-          "purpose": "",
-          "qty": 25,
+          "name": "Überzieh-Leibchen",
+          "purpose": "Schnell drüber für Fotos",
+          "qty": 20,
           "prices": [
             5,
             10,
@@ -69,18 +71,18 @@
             15
           ],
           "reusable": true,
-          "checked": false
+          "checked": true
         }
       ]
     },
     {
       "id": "stand",
       "label": "Stand-Ausstattung",
-      "icon": "Ã¢ÂÂº",
+      "icon": "⛺",
       "items": [
         {
           "id": "hussen",
-          "name": "Hussen (Bierbank)",
+          "name": "Hussen (Stehtische)",
           "purpose": "Professionelle Optik",
           "qty": 6,
           "prices": [
@@ -93,13 +95,13 @@
         },
         {
           "id": "liegestuhl",
-          "name": "LiegestÃ¼hle (bedruckt)",
+          "name": "Liegestühle (bedruckt)",
           "purpose": "Chill-Zone am Strand",
-          "qty": 25,
+          "qty": 10,
           "prices": [
-            0,
-            39,
-            50
+            20,
+            40,
+            70
           ],
           "reusable": true,
           "checked": true
@@ -133,7 +135,7 @@
         {
           "id": "rollup",
           "name": "Roll-Up Banner",
-          "purpose": "",
+          "purpose": "Fläche in Zelten",
           "qty": 4,
           "prices": [
             40,
@@ -146,7 +148,7 @@
         {
           "id": "schirme",
           "name": "Sonnenschirme",
-          "purpose": "",
+          "purpose": "Schattenplätze",
           "qty": 4,
           "prices": [
             25,
@@ -161,7 +163,7 @@
     {
       "id": "premium",
       "label": "Premium Merch",
-      "icon": "Ã°ÂÂÂ",
+      "icon": "🏆",
       "items": [
         {
           "id": "bowl",
@@ -205,7 +207,7 @@
         {
           "id": "mauspad",
           "name": "Mauspads",
-          "purpose": "BÃÂ¼ro / B2B-Geschenk",
+          "purpose": "Büro / B2B-Geschenk",
           "qty": 30,
           "prices": [
             3,
@@ -217,7 +219,7 @@
         },
         {
           "id": "handtuch",
-          "name": "HandtÃÂ¼cher (Mikrofaser)",
+          "name": "Handtücher (Mikrofaser)",
           "purpose": "Schwimmer + Strand",
           "qty": 50,
           "prices": [
@@ -233,7 +235,7 @@
     {
       "id": "giveaway",
       "label": "Giveaways",
-      "icon": "Ã°ÂÂÂ",
+      "icon": "🎁",
       "items": [
         {
           "id": "becher",
@@ -251,7 +253,7 @@
         {
           "id": "ballon",
           "name": "Luftballons",
-          "purpose": "Kinder, HÃÂ¼pfburg",
+          "purpose": "Kinder, Hüpfburg",
           "qty": 500,
           "prices": [
             0.15,
@@ -263,7 +265,7 @@
         },
         {
           "id": "ball",
-          "name": "BÃÂ¤lle (Wasser-/Stressball)",
+          "name": "Bälle (Wasser-/Stressball)",
           "purpose": "Strand + Kinder",
           "qty": 200,
           "prices": [
@@ -302,7 +304,7 @@
         },
         {
           "id": "samen",
-          "name": "Samen-TÃÂ¼tchen",
+          "name": "Samen-Tütchen",
           "purpose": "Nachhaltig, on-brand",
           "qty": 500,
           "prices": [
@@ -316,7 +318,7 @@
         {
           "id": "sticker",
           "name": "Sticker-Sets",
-          "purpose": "Branding ÃÂ¼berall",
+          "purpose": "Branding überall",
           "qty": 500,
           "prices": [
             0.2,
@@ -328,7 +330,7 @@
         },
         {
           "id": "schluessel",
-          "name": "SchlÃÂ¼sselanhÃÂ¤nger (Holz)",
+          "name": "Schlüsselanhänger (Holz)",
           "purpose": "Haptisch, on-brand",
           "qty": 200,
           "prices": [
@@ -341,8 +343,8 @@
         },
         {
           "id": "tattoo",
-          "name": "Tattoo-Sticker (temporÃÂ¤r)",
-          "purpose": "Kinder HÃÂ¼pfburg",
+          "name": "Tattoo-Sticker (temporär)",
+          "purpose": "Kinder Hüpfburg",
           "qty": 500,
           "prices": [
             0.1,
@@ -354,7 +356,7 @@
         },
         {
           "id": "faecher",
-          "name": "FÃÂ¤cher (bedruckt)",
+          "name": "Fächer (bedruckt)",
           "purpose": "August-Hitze",
           "qty": 300,
           "prices": [
@@ -394,7 +396,7 @@
         {
           "id": "sonnencreme",
           "name": "Sonnencreme-Sachets",
-          "purpose": "NÃÂ¼tzlich, August",
+          "purpose": "Nützlich, August",
           "qty": 500,
           "prices": [
             0.3,
@@ -407,7 +409,7 @@
         {
           "id": "malbuch",
           "name": "Kinder-Malbuch",
-          "purpose": "HÃÂ¼pfburg-Bereich",
+          "purpose": "Hüpfburg-Bereich",
           "qty": 100,
           "prices": [
             0.8,
@@ -435,16 +437,16 @@
     {
       "id": "food",
       "label": "Verpflegung",
-      "icon": "Ã°ÂÂ¥Â¤",
+      "icon": "🥤",
       "items": [
         {
           "id": "iso",
           "name": "Iso-Drink + Sticker",
           "purpose": "Sportler-Erfrischung",
-          "qty": 250,
+          "qty": 300,
           "prices": [
-            0,
-            90,
+            0.5,
+            0.8,
             1.5
           ],
           "reusable": false,
@@ -452,8 +454,8 @@
         },
         {
           "id": "riegel",
-          "name": "MÃ¼sliriegel",
-          "purpose": "Snack fÃÂ¼r Sportler",
+          "name": "Müsliriegel + Banderole",
+          "purpose": "Snack für Sportler",
           "qty": 300,
           "prices": [
             0.3,
@@ -478,7 +480,5 @@
         }
       ]
     }
-  ],
-  "lastSaved": "2026-05-20T07:21:40.168Z",
-  "lastSavedBy": "Rick"
+  ]
 }
