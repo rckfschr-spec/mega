@@ -1,7 +1,5 @@
 {
   "version": 1,
-  "lastSaved": null,
-  "lastSavedBy": null,
   "cats": [
     {
       "id": "team",
@@ -12,7 +10,7 @@
           "id": "tshirt",
           "name": "T-Shirts (Team)",
           "purpose": "Einheitliches Auftreten",
-          "qty": 20,
+          "qty": 40,
           "prices": [
             8,
             15,
@@ -71,7 +69,7 @@
             15
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         }
       ]
     },
@@ -480,5 +478,7 @@
         }
       ]
     }
-  ]
+  ],
+  "lastSaved": "2026-05-20T07:26:29.808Z",
+  "lastSavedBy": "Rick"
 }
