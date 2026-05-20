@@ -52,9 +52,9 @@
           "purpose": "Schnell drüber für Fotos",
           "qty": 15,
           "prices": [
-            5,
-            10,
-            18
+            7,
+            12,
+            19
           ],
           "reusable": true,
           "checked": true
@@ -65,9 +65,9 @@
           "purpose": "",
           "qty": 20,
           "prices": [
-            6,
-            10,
-            15
+            8,
+            15,
+            22
           ],
           "reusable": true,
           "checked": false
@@ -85,7 +85,7 @@
           "reusable": false,
           "checked": true,
           "isNew": true,
-          "pick": 1
+          "pick": 0
         },
         {
           "id": "n17792650967885",
@@ -216,6 +216,21 @@
           "checked": true,
           "isNew": true,
           "pick": 1
+        },
+        {
+          "id": "n17792659388766",
+          "name": "Kinderbemalung",
+          "purpose": "",
+          "qty": 2,
+          "prices": [
+            250,
+            250,
+            250
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 0
         }
       ]
     },
@@ -557,6 +572,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T08:23:28.089Z",
+  "lastSaved": "2026-05-20T08:35:55.628Z",
   "lastSavedBy": "Rick"
 }
