@@ -80,7 +80,7 @@
       "items": [
         {
           "id": "hussen",
-          "name": "Hussen (Stehtische)",
+          "name": "Hussen (Bierbank)",
           "purpose": "Professionelle Optik",
           "qty": 6,
           "prices": [
@@ -93,13 +93,13 @@
         },
         {
           "id": "liegestuhl",
-          "name": "LiegestÃ¼hle (bedruckt)",
+          "name": "Liegestühle (bedruckt)",
           "purpose": "Chill-Zone am Strand",
-          "qty": 10,
+          "qty": 25,
           "prices": [
-            20,
-            40,
-            70
+            0,
+            39,
+            50
           ],
           "reusable": true,
           "checked": true
@@ -479,6 +479,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:13:24.256Z",
+  "lastSaved": "2026-05-20T07:15:12.993Z",
   "lastSavedBy": "Rick"
 }
