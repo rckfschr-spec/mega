@@ -297,9 +297,9 @@
           "purpose": "",
           "qty": 10,
           "prices": [
-            8,
-            12,
-            17
+            10,
+            15,
+            19
           ],
           "reusable": true,
           "checked": true
@@ -573,6 +573,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T08:39:08.606Z",
+  "lastSaved": "2026-05-20T08:46:34.520Z",
   "lastSavedBy": "Rick"
 }
