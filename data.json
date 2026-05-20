@@ -1,7 +1,5 @@
 {
   "version": 1,
-  "lastSaved": null,
-  "lastSavedBy": null,
   "cats": [
     {
       "id": "team",
@@ -11,21 +9,22 @@
         {
           "id": "tshirt",
           "name": "T-Shirts (Team)",
-          "purpose": "Einheitliches Auftreten",
-          "qty": 20,
+          "purpose": "",
+          "qty": 40,
           "prices": [
-            8,
-            15,
-            25
+            9,
+            19,
+            26
           ],
           "reusable": true,
-          "checked": true
+          "checked": true,
+          "pick": 1
         },
         {
           "id": "hoodie",
           "name": "Hoodies (Team)",
-          "purpose": "Abends / kühles Wetter",
-          "qty": 15,
+          "purpose": "",
+          "qty": 40,
           "prices": [
             18,
             30,
@@ -37,12 +36,12 @@
         {
           "id": "trikot",
           "name": "Sportliche Trikots",
-          "purpose": "Challenge-Starter",
-          "qty": 8,
+          "purpose": "",
+          "qty": 10,
           "prices": [
             15,
-            30,
-            50
+            22,
+            40
           ],
           "reusable": true,
           "checked": true
@@ -51,7 +50,7 @@
           "id": "leibchen",
           "name": "Überzieh-Leibchen",
           "purpose": "Schnell drüber für Fotos",
-          "qty": 20,
+          "qty": 15,
           "prices": [
             5,
             10,
@@ -63,15 +62,15 @@
         {
           "id": "caps",
           "name": "Caps / Snapbacks",
-          "purpose": "Sonnenschutz + Branding",
+          "purpose": "",
           "qty": 20,
           "prices": [
-            4,
-            8,
+            6,
+            10,
             15
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         }
       ]
     },
@@ -480,5 +479,7 @@
         }
       ]
     }
-  ]
+  ],
+  "lastSaved": "2026-05-20T07:37:32.711Z",
+  "lastSavedBy": "Rick"
 }
