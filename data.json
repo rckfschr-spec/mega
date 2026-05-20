@@ -12,8 +12,8 @@
           "purpose": "Einheitliches Auftreten",
           "qty": 40,
           "prices": [
-            8,
-            15,
+            9,
+            19,
             25
           ],
           "reusable": true,
@@ -23,7 +23,7 @@
           "id": "hoodie",
           "name": "Hoodies (Team)",
           "purpose": "Abends / kühles Wetter",
-          "qty": 15,
+          "qty": 40,
           "prices": [
             18,
             30,
@@ -36,11 +36,11 @@
           "id": "trikot",
           "name": "Sportliche Trikots",
           "purpose": "Challenge-Starter",
-          "qty": 8,
+          "qty": 15,
           "prices": [
             15,
-            30,
-            50
+            21,
+            40
           ],
           "reusable": true,
           "checked": true
@@ -80,7 +80,7 @@
       "items": [
         {
           "id": "hussen",
-          "name": "Hussen (Stehtische)",
+          "name": "Hussen (Bierbank)",
           "purpose": "Professionelle Optik",
           "qty": 6,
           "prices": [
@@ -479,6 +479,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T07:26:29.808Z",
+  "lastSaved": "2026-05-20T07:28:32.985Z",
   "lastSavedBy": "Rick"
 }
