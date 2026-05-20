@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "lastSaved": null,
+  "lastSavedBy": null,
+  "cats": [
+    { "id": "team", "label": "Team Outfit", "icon": "👕", "items": [
+      { "id": "tshirt", "name": "T-Shirts (Team)", "purpose": "Einheitliches Auftreten", "qty": 20, "prices": [8, 15, 25], "reusable": true, "checked": true },
+      { "id": "hoodie", "name": "Hoodies (Team)", "purpose": "Abends / kühles Wetter", "qty": 15, "prices": [18, 30, 45], "reusable": true, "checked": true },
+      { "id": "trikot", "name": "Sportliche Trikots", "purpose": "Challenge-Starter", "qty": 8, "prices": [15, 30, 50], "reusable": true, "checked": true },
+      { "id": "leibchen", "name": "Überzieh-Leibchen", "purpose": "Schnell drüber für Fotos", "qty": 20, "prices": [5, 10, 18], "reusable": true, "checked": true },
+      { "id": "caps", "name": "Caps / Snapbacks", "purpose": "Sonnenschutz + Branding", "qty": 20, "prices": [4, 8, 15], "reusable": true, "checked": true }
+    ]},
+    { "id": "stand", "label": "Stand-Ausstattung", "icon": "⛺", "items": [
+      { "id": "hussen", "name": "Hussen (Stehtische)", "purpose": "Professionelle Optik", "qty": 6, "prices": [15, 30, 50], "reusable": true, "checked": true },
+      { "id": "liegestuhl", "name": "Liegestühle (bedruckt)", "purpose": "Chill-Zone am Strand", "qty": 10, "prices": [20, 40, 70], "reusable": true, "checked": true },
+      { "id": "fahnen", "name": "Beachflags / Fahnen", "purpose": "Fernwirkung", "qty": 4, "prices": [30, 60, 120], "reusable": true, "checked": true },
+      { "id": "decken", "name": "Picknick-Decken", "purpose": "Strand, Kinder-Ecke", "qty": 15, "prices": [8, 15, 25], "reusable": true, "checked": true },
+      { "id": "rollup", "name": "Roll-Up Banner", "purpose": "Fläche in Zelten", "qty": 4, "prices": [40, 80, 130], "reusable": true, "checked": true },
+      { "id": "schirme", "name": "Sonnenschirme", "purpose": "Schattenplätze", "qty": 4, "prices": [25, 50, 100], "reusable": true, "checked": true }
+    ]},
+    { "id": "premium", "label": "Premium Merch", "icon": "🏆", "items": [
+      { "id": "bowl", "name": "Bowls / Lunchbox", "purpose": "Goodie Bag / Verlosung", "qty": 30, "prices": [5, 12, 22], "reusable": true, "checked": true },
+      { "id": "flasche", "name": "Trinkflasche (Edelstahl)", "purpose": "Goodie Bag / Team", "qty": 50, "prices": [5, 12, 20], "reusable": true, "checked": true },
+      { "id": "kaffee", "name": "Kaffee-To-Go Becher", "purpose": "Goodie Bag / Verlosung", "qty": 50, "prices": [4, 10, 18], "reusable": true, "checked": true },
+      { "id": "mauspad", "name": "Mauspads", "purpose": "Büro / B2B-Geschenk", "qty": 30, "prices": [3, 6, 12], "reusable": true, "checked": true },
+      { "id": "handtuch", "name": "Handtücher (Mikrofaser)", "purpose": "Schwimmer + Strand", "qty": 50, "prices": [4, 8, 15], "reusable": true, "checked": true }
+    ]},
+    { "id": "giveaway", "label": "Giveaways", "icon": "🎁", "items": [
+      { "id": "becher", "name": "Becher (Melamin)", "purpose": "Streuartikel", "qty": 300, "prices": [0.8, 1.5, 3], "reusable": false, "checked": true },
+      { "id": "ballon", "name": "Luftballons", "purpose": "Kinder, Hüpfburg", "qty": 500, "prices": [0.15, 0.3, 0.5], "reusable": false, "checked": true },
+      { "id": "ball", "name": "Bälle (Wasser-/Stressball)", "purpose": "Strand + Kinder", "qty": 200, "prices": [0.8, 1.5, 3], "reusable": false, "checked": true },
+      { "id": "klatsch", "name": "Klatschdinger", "purpose": "Stimmung bei Rennen", "qty": 500, "prices": [0.3, 0.6, 1], "reusable": false, "checked": true },
+      { "id": "karten", "name": "Kartenspiel", "purpose": "Erinnerung, Wartezeit", "qty": 150, "prices": [2, 4, 7], "reusable": true, "checked": true },
+      { "id": "samen", "name": "Samen-Tütchen", "purpose": "Nachhaltig, on-brand", "qty": 500, "prices": [0.3, 0.6, 1.2], "reusable": false, "checked": true },
+      { "id": "sticker", "name": "Sticker-Sets", "purpose": "Branding überall", "qty": 500, "prices": [0.2, 0.5, 1], "reusable": false, "checked": true },
+      { "id": "schluessel", "name": "Schlüsselanhänger (Holz)", "purpose": "Haptisch, on-brand", "qty": 200, "prices": [0.8, 1.5, 3], "reusable": false, "checked": true },
+      { "id": "tattoo", "name": "Tattoo-Sticker (temporär)", "purpose": "Kinder Hüpfburg", "qty": 500, "prices": [0.1, 0.2, 0.4], "reusable": false, "checked": true },
+      { "id": "faecher", "name": "Fächer (bedruckt)", "purpose": "August-Hitze", "qty": 300, "prices": [0.5, 1, 2], "reusable": false, "checked": true },
+      { "id": "beutel", "name": "Jutebeutel", "purpose": "Tragetasche", "qty": 200, "prices": [1.5, 3, 5], "reusable": true, "checked": true },
+      { "id": "flyer", "name": "QR-Code Flyer", "purpose": "Lead-Generierung", "qty": 500, "prices": [0.08, 0.15, 0.3], "reusable": false, "checked": true },
+      { "id": "sonnencreme", "name": "Sonnencreme-Sachets", "purpose": "Nützlich, August", "qty": 500, "prices": [0.3, 0.5, 0.8], "reusable": false, "checked": true },
+      { "id": "malbuch", "name": "Kinder-Malbuch", "purpose": "Hüpfburg-Bereich", "qty": 100, "prices": [0.8, 1.5, 3], "reusable": false, "checked": true },
+      { "id": "pfeife", "name": "Trillerpfeifen", "purpose": "Anfeuern", "qty": 200, "prices": [0.3, 0.6, 1.2], "reusable": false, "checked": true }
+    ]},
+    { "id": "food", "label": "Verpflegung", "icon": "🥤", "items": [
+      { "id": "iso", "name": "Iso-Drink + Sticker", "purpose": "Sportler-Erfrischung", "qty": 300, "prices": [0.5, 0.8, 1.5], "reusable": false, "checked": true },
+      { "id": "riegel", "name": "Müsliriegel + Banderole", "purpose": "Snack für Sportler", "qty": 300, "prices": [0.3, 0.5, 0.8], "reusable": false, "checked": true },
+      { "id": "wasser", "name": "Wasser + Sticker", "purpose": "Basis-Erfrischung", "qty": 500, "prices": [0.15, 0.25, 0.4], "reusable": false, "checked": true }
+    ]}
+  ]
+}
