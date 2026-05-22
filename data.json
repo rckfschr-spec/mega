@@ -233,7 +233,7 @@
             250
           ],
           "reusable": false,
-          "checked": false,
+          "checked": true,
           "isNew": true,
           "pick": 0
         }
@@ -255,7 +255,7 @@
             22
           ],
           "reusable": true,
-          "checked": false
+          "checked": true
         },
         {
           "id": "flasche",
@@ -268,7 +268,7 @@
             25
           ],
           "reusable": true,
-          "checked": false
+          "checked": true
         },
         {
           "id": "kaffee",
@@ -281,7 +281,7 @@
             18
           ],
           "reusable": true,
-          "checked": false
+          "checked": true
         },
         {
           "id": "mauspad",
@@ -370,7 +370,7 @@
             11
           ],
           "reusable": false,
-          "checked": false
+          "checked": true
         },
         {
           "id": "klatsch",
@@ -383,7 +383,7 @@
             2.5
           ],
           "reusable": false,
-          "checked": false
+          "checked": true
         },
         {
           "id": "karten",
@@ -453,7 +453,7 @@
         {
           "id": "faecher",
           "name": "Fächer (bedruckt)",
-          "purpose": "August-Hitze",
+          "purpose": "",
           "qty": 300,
           "prices": [
             0.7,
@@ -461,7 +461,7 @@
             2
           ],
           "reusable": false,
-          "checked": false
+          "checked": true
         },
         {
           "id": "beutel",
@@ -480,7 +480,7 @@
         {
           "id": "flyer",
           "name": "QR-Code Flyer",
-          "purpose": "Lead-Generierung",
+          "purpose": "",
           "qty": 500,
           "prices": [
             0.1,
@@ -493,7 +493,7 @@
         {
           "id": "sonnencreme",
           "name": "Sonnencreme-Sachets",
-          "purpose": "Nützlich, August",
+          "purpose": "",
           "qty": 500,
           "prices": [
             0,
@@ -514,7 +514,7 @@
             0
           ],
           "reusable": false,
-          "checked": false
+          "checked": true
         },
         {
           "id": "pfeife",
@@ -579,6 +579,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-22T06:56:25.319Z",
+  "lastSaved": "2026-05-22T06:57:21.433Z",
   "lastSavedBy": "Rick"
 }
