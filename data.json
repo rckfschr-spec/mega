@@ -266,6 +266,36 @@
           "checked": true,
           "isNew": true,
           "pick": 0
+        },
+        {
+          "id": "n17794394755022",
+          "name": "Vorhandene Displays",
+          "purpose": "",
+          "qty": 2,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794400417743",
+          "name": "Musikboxen?",
+          "purpose": "",
+          "qty": 2,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
         }
       ]
     },
@@ -609,6 +639,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-22T08:37:43.112Z",
+  "lastSaved": "2026-05-22T08:54:05.422Z",
   "lastSavedBy": "Rick"
 }
