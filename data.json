@@ -128,12 +128,13 @@
           "purpose": "Chill-Zone am Strand",
           "qty": 25,
           "prices": [
-            35,
+            30,
             45,
             65
           ],
           "reusable": true,
-          "checked": true
+          "checked": true,
+          "pick": 0
         },
         {
           "id": "fahnen",
@@ -141,12 +142,13 @@
           "purpose": "Fernwirkung",
           "qty": 8,
           "prices": [
-            31,
-            50,
-            90
+            70,
+            90,
+            120
           ],
           "reusable": true,
-          "checked": true
+          "checked": true,
+          "pick": 1
         },
         {
           "id": "decken",
@@ -154,8 +156,8 @@
           "purpose": "Über die Liegestühle",
           "qty": 25,
           "prices": [
-            15,
-            24,
+            18,
+            26,
             30
           ],
           "reusable": true,
@@ -167,7 +169,7 @@
           "purpose": "",
           "qty": 4,
           "prices": [
-            40,
+            55,
             75,
             130
           ],
@@ -573,6 +575,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-20T08:46:34.520Z",
+  "lastSaved": "2026-05-22T06:53:13.569Z",
   "lastSavedBy": "Rick"
 }
