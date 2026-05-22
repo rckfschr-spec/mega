@@ -31,7 +31,7 @@
             45
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "trikot",
@@ -57,7 +57,7 @@
             19
           ],
           "reusable": true,
-          "checked": true,
+          "checked": false,
           "pick": 0
         },
         {
@@ -99,7 +99,7 @@
             50
           ],
           "reusable": false,
-          "checked": true,
+          "checked": false,
           "isNew": true,
           "pick": 1
         },
@@ -132,6 +132,36 @@
           "checked": true,
           "isNew": true,
           "pick": 0
+        },
+        {
+          "id": "n17794440207665",
+          "name": "ggf Poloshirt für O-See",
+          "purpose": "",
+          "qty": 20,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": false,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794446027116",
+          "name": "Lanyards",
+          "purpose": "",
+          "qty": 100,
+          "prices": [
+            3,
+            3,
+            3
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
         }
       ]
     },
@@ -142,13 +172,13 @@
       "items": [
         {
           "id": "hussen",
-          "name": "Hussen (Biertische)",
+          "name": "Hussen (3x2m ca)",
           "purpose": "Professionelle Optik",
           "qty": 6,
           "prices": [
-            38,
-            45,
-            65
+            60,
+            80,
+            100
           ],
           "reusable": true,
           "checked": true,
@@ -166,7 +196,7 @@
           ],
           "reusable": true,
           "checked": true,
-          "pick": 1
+          "pick": 0
         },
         {
           "id": "fahnen",
@@ -206,7 +236,7 @@
             130
           ],
           "reusable": true,
-          "checked": true,
+          "checked": false,
           "pick": 1
         },
         {
@@ -239,9 +269,9 @@
         },
         {
           "id": "n17792643523332",
-          "name": "Stehtische?",
+          "name": "Stehtische? Haben wir nicht - Getränke über Märkisch und Stehtische + Geränke Lars ",
           "purpose": "",
-          "qty": 9,
+          "qty": 6,
           "prices": [
             0,
             0,
@@ -263,7 +293,7 @@
             250
           ],
           "reusable": false,
-          "checked": true,
+          "checked": false,
           "isNew": true,
           "pick": 0
         },
@@ -284,13 +314,73 @@
         },
         {
           "id": "n17794400417743",
-          "name": "Musikboxen?",
+          "name": "Musikboxen? Lars bringt mit Mikros",
+          "purpose": "",
+          "qty": 1,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794424359020",
+          "name": "Beachflag ohne Fuß",
+          "purpose": "",
+          "qty": 4,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794426090381",
+          "name": "Rol up ohne fuß",
           "purpose": "",
           "qty": 2,
           "prices": [
             0,
             0,
             0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794426866332",
+          "name": "eigene Kindergarnituren",
+          "purpose": "",
+          "qty": 2,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794449069527",
+          "name": "Stranddecken? Preis ermitteln",
+          "purpose": "",
+          "qty": 25,
+          "prices": [
+            4,
+            4,
+            4
           ],
           "reusable": false,
           "checked": true,
@@ -315,7 +405,7 @@
             22
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "flasche",
@@ -328,7 +418,7 @@
             25
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "kaffee",
@@ -341,7 +431,7 @@
             18
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "mauspad",
@@ -367,7 +457,7 @@
             19
           ],
           "reusable": true,
-          "checked": true
+          "checked": false
         },
         {
           "id": "n17792633559700",
@@ -380,7 +470,7 @@
             21
           ],
           "reusable": false,
-          "checked": true,
+          "checked": false,
           "isNew": true,
           "pick": 1
         }
@@ -393,7 +483,7 @@
       "items": [
         {
           "id": "becher",
-          "name": "Becher (einweg farbig)",
+          "name": "Becher (einweg farbig) / Becher Pappe mit Logo",
           "purpose": "",
           "qty": 500,
           "prices": [
@@ -416,34 +506,35 @@
             0.5
           ],
           "reusable": false,
-          "checked": true,
+          "checked": false,
           "pick": 0
         },
         {
           "id": "ball",
           "name": "Bälle (Wasser)",
           "purpose": "Strand + Kinder",
-          "qty": 50,
+          "qty": 400,
           "prices": [
+            0.65,
             3,
-            7,
             11
           ],
           "reusable": false,
-          "checked": true
+          "checked": true,
+          "pick": 0
         },
         {
           "id": "klatsch",
           "name": "Klatschdinger",
           "purpose": "Stimmung bei Rennen",
-          "qty": 300,
+          "qty": 100,
           "prices": [
             0.6,
             1,
             2.5
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "karten",
@@ -469,7 +560,7 @@
             1.2
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "sticker",
@@ -482,7 +573,7 @@
             1
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "schluessel",
@@ -521,7 +612,7 @@
             2
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "beutel",
@@ -534,7 +625,7 @@
             13
           ],
           "reusable": true,
-          "checked": true,
+          "checked": false,
           "pick": 2
         },
         {
@@ -569,12 +660,13 @@
           "purpose": "Hüpfburg-Bereich",
           "qty": 100,
           "prices": [
-            0,
+            1,
             0,
             0
           ],
           "reusable": false,
-          "checked": true
+          "checked": false,
+          "pick": 0
         },
         {
           "id": "pfeife",
@@ -588,6 +680,21 @@
           ],
           "reusable": false,
           "checked": false
+        },
+        {
+          "id": "n17794435108673",
+          "name": "armbänder silikon (neon farben)",
+          "purpose": "",
+          "qty": 500,
+          "prices": [
+            0.6,
+            0.6,
+            0.6
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 0
         }
       ]
     },
@@ -620,7 +727,7 @@
             2.3
           ],
           "reusable": false,
-          "checked": true
+          "checked": false
         },
         {
           "id": "wasser",
@@ -634,11 +741,41 @@
           ],
           "reusable": false,
           "checked": true,
-          "pick": 2
+          "pick": 1
+        },
+        {
+          "id": "n17794436933674",
+          "name": "was zum Kühlen",
+          "purpose": "",
+          "qty": 0,
+          "prices": [
+            0,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
+        },
+        {
+          "id": "n17794455473318",
+          "name": "Gummibärchen oder so",
+          "purpose": "",
+          "qty": 1000,
+          "prices": [
+            0.2,
+            0,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 0
         }
       ]
     }
   ],
-  "lastSaved": "2026-05-22T08:54:05.422Z",
-  "lastSavedBy": "Rick"
+  "lastSaved": "2026-05-22T10:26:27.483Z",
+  "lastSavedBy": "Tom"
 }
