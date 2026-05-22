@@ -599,7 +599,8 @@
             1.2
           ],
           "reusable": false,
-          "checked": true
+          "checked": true,
+          "pick": 0
         },
         {
           "id": "faecher",
@@ -772,10 +773,25 @@
           "checked": true,
           "isNew": true,
           "pick": 0
+        },
+        {
+          "id": "n17794456374489",
+          "name": "Kleine Snacks",
+          "purpose": "",
+          "qty": 40,
+          "prices": [
+            2,
+            2,
+            2
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 1
         }
       ]
     }
   ],
-  "lastSaved": "2026-05-22T10:26:27.483Z",
+  "lastSaved": "2026-05-22T10:29:01.682Z",
   "lastSavedBy": "Tom"
 }
