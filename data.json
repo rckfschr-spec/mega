@@ -106,7 +106,7 @@
         {
           "id": "n17794384784180",
           "name": "Patches für Sportausrüstung",
-          "purpose": "",
+          "purpose": "Zun draufbügeln (für alle Shirts möglich)",
           "qty": 30,
           "prices": [
             0,
@@ -609,6 +609,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-05-22T08:31:45.034Z",
+  "lastSaved": "2026-05-22T08:33:06.824Z",
   "lastSavedBy": "Rick"
 }
