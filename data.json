@@ -154,7 +154,7 @@
           "purpose": "",
           "qty": 100,
           "prices": [
-            3,
+            1.2,
             3,
             3
           ],
@@ -231,12 +231,12 @@
           "purpose": "",
           "qty": 4,
           "prices": [
-            55,
-            75,
+            70,
+            81,
             130
           ],
           "reusable": true,
-          "checked": false,
+          "checked": true,
           "pick": 1
         },
         {
@@ -624,8 +624,8 @@
           "purpose": "Kinder Hüpfburg",
           "qty": 500,
           "prices": [
-            0.4,
-            0.9,
+            0.68,
+            0.85,
             1.2
           ],
           "reusable": false,
@@ -718,9 +718,9 @@
           "purpose": "",
           "qty": 500,
           "prices": [
+            0.3,
             0.6,
-            0.6,
-            0.6
+            1
           ],
           "reusable": false,
           "checked": true,
@@ -822,6 +822,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-06-03T08:05:18.208Z",
+  "lastSaved": "2026-06-03T08:18:05.171Z",
   "lastSavedBy": "Rick"
 }
