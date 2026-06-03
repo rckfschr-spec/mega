@@ -329,18 +329,18 @@
         },
         {
           "id": "n17794424359020",
-          "name": "Beachflag ohne Fuß",
+          "name": "Beachflag ohne Fuß (einseitig)",
           "purpose": "",
           "qty": 4,
           "prices": [
-            0,
+            35,
             0,
             0
           ],
           "reusable": false,
           "checked": true,
           "isNew": true,
-          "pick": 1
+          "pick": 0
         },
         {
           "id": "n17794426090381",
@@ -386,6 +386,21 @@
           "checked": true,
           "isNew": true,
           "pick": 1
+        },
+        {
+          "id": "n17804717568000",
+          "name": "Beachflag ohne Fuß (beidseitig)",
+          "purpose": "",
+          "qty": 4,
+          "prices": [
+            75,
+            90,
+            0
+          ],
+          "reusable": false,
+          "checked": true,
+          "isNew": true,
+          "pick": 0
         }
       ]
     },
@@ -792,6 +807,6 @@
       ]
     }
   ],
-  "lastSaved": "2026-06-03T07:26:28.878Z",
+  "lastSaved": "2026-06-03T07:32:00.488Z",
   "lastSavedBy": "Rick"
 }
